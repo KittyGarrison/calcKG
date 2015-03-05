@@ -20,12 +20,23 @@ function sqRoot(num) {
   return Math.sqrt(num);
 }
 
-function getTwoNumbers(){
-  var num1 = sget("Enter the first number. ");
-  var num2 = sget("Enter the second number.");
-  return [Number(num1), Number(num2)];
+// function getTwoNumbers(){
+//   var num1 = sget("Enter the first number. ");
+//   var num2 = sget("Enter the second number.");
+//   return [Number(num1), Number(num2)];
+// }
+
+
+
+function getFirstNumber(){
+  var number = sget("Enter the first number. ");
+  return Number(number);
 }
 
+function getSecondNumber(){
+  var number = sget("Enter the second number. ");
+  return Number(number);
+}
 
 function operatorChoice(){
 
@@ -34,32 +45,28 @@ function operatorChoice(){
   switch(userInput.trim()){
     case "1":
       console.log("Ok, addition.");
-      var twoNumbers = getTwoNumbers();
-      console.log(add(twoNumbers[0],twoNumbers[1]));
+      console.log("The answer is " + add(getFirstNumber(), getSecondNumber()) + ".\n");
       operatorChoice();
       break;
     case "2":
       console.log("Ok, subtraction.");
-      var twoNumbers = getTwoNumbers();
-      console.log(subtract(twoNumbers[0],twoNumbers[1]));
+      console.log("The answer is " + subtract(getFirstNumber(), getSecondNumber()) + ".\n");
       operatorChoice();
       break;
     case "3":
       console.log("Ok, multiplication.");
-      var twoNumbers = getTwoNumbers();
-      console.log(mutiply(twoNumbers[0],twoNumbers[1]));
+      console.log("The answer is " + mutiply(getFirstNumber(), getSecondNumber()) + ".\n");
       operatorChoice();
       break;
     case "4":
       console.log("Ok, division.");
-      var twoNumbers = getTwoNumbers();
-      console.log(divide(twoNumbers[0],twoNumbers[1]));
+      console.log("The answer is " + divide(getFirstNumber(), getSecondNumber()) + ".\n");
       operatorChoice();
       break;
     case "5":
       console.log("Ok, square root.");
       var singleNum = sget("Enter a number: ");
-      console.log("The square root of %s is %s.", singleNum.trim(), sqRoot(Number(singleNum)));
+      console.log("The square root of %s is %s.\n", singleNum.trim(), sqRoot(Number(singleNum)));
       operatorChoice();
       break;
     case "6":
