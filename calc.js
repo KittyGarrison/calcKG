@@ -20,6 +20,7 @@ function sqRoot(num) {
   return Math.sqrt(num);
 }
 
+
 function operatorChoice(){
 
   var userInput = sget("What operation would you like to perform? \n 1- addition\n 2- subtraction\n 3- multiplication\n 4- division\n 5- square root\n 6- quit\nPlease enter 1-6 ");
@@ -39,6 +40,8 @@ function operatorChoice(){
       break;
     case "5":
       console.log("Ok square root.");
+      var singleNum = sget("Enter a number: ");
+      console.log("The square root of " + singleNum.trim() + " is " + sqRoot(Number(singleNum)) + ".");
       break;
     case "6":
       console.log("Goodbye.");
