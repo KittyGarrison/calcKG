@@ -30,12 +30,36 @@ function sqRoot(num) {
 
 function getFirstNumber(){
   var number = sget("Enter the first number. ");
-  return Number(number);
+  if(isValidNumber(number)){
+    return Number(number);
+  }else{
+    console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
+    operatorChoice();
+  }
 }
 
 function getSecondNumber(){
   var number = sget("Enter the second number. ");
-  return Number(number);
+  if(isValidNumber(number)){
+    return Number(number);
+  }else{
+    console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
+    operatorChoice();
+  }
+}
+
+function getSingleNumber(){
+  var number = sget("Enter a number. ");
+  if(isValidNumber(number)){
+    return Number(number);
+  }else{
+    console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
+    operatorChoice();
+  }
+}
+
+function isValidNumber(input){
+  return Number(input) == input;
 }
 
 function operatorChoice(){
@@ -65,8 +89,9 @@ function operatorChoice(){
       break;
     case "5":
       console.log("Ok, square root.");
-      var singleNum = sget("Enter a number: ");
-      console.log("The square root of %s is %s.\n", singleNum.trim(), sqRoot(Number(singleNum)));
+      console.log("The answer is " + sqRoot(getSingleNumber() + ".\n"));
+      // var singleNum = sget("Enter a number: ");
+      // console.log("The square root of %s is %s.\n", singleNum.trim(), sqRoot(Number(singleNum)));
       operatorChoice();
       break;
     case "6":
