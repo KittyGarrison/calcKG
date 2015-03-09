@@ -1,3 +1,5 @@
+
+
 var sget = require("sget");
 
 function add(num1, num2) {
@@ -20,46 +22,14 @@ function sqRoot(num) {
   return Math.sqrt(num);
 }
 
-// function getTwoNumbers(){
-//   var num1 = sget("Enter the first number. ");
-//   var num2 = sget("Enter the second number.");
-//   return [Number(num1), Number(num2)];
-// }
-
-
-
-function getFirstNumber(){
-  var number = sget("Enter the first number. ");
-  if(isValidNumber(number)){
-    return Number(number);
-  }else{
+function getSingleNumber(saying){
+  var number = sget(saying).trim();
+  if(isNaN(number)){
     console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
-    operatorChoice();
-  }
-}
-
-function getSecondNumber(){
-  var number = sget("Enter the second number. ");
-  if(isValidNumber(number)){
-    return Number(number);
+    return getSingleNumber(saying);
   }else{
-    console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
-    operatorChoice();
-  }
-}
-
-function getSingleNumber(){
-  var number = sget("Enter a number. ");
-  if(isValidNumber(number)){
     return Number(number);
-  }else{
-    console.log("!!!!!!!That is not a valid number.!!!!!!!\n");
-    operatorChoice();
   }
-}
-
-function isValidNumber(input){
-  return Number(input) == input;
 }
 
 function operatorChoice(){
@@ -69,37 +39,36 @@ function operatorChoice(){
   switch(userInput.trim()){
     case "1":
       console.log("Ok, addition.");
-      console.log("The answer is " + add(getFirstNumber(), getSecondNumber()) + ".\n");
+      console.log("The answer is " + add(getSingleNumber("Enter your first number. "), getSingleNumber("Enter your second number. ")) + ".\n");
       operatorChoice();
       break;
     case "2":
       console.log("Ok, subtraction.");
-      console.log("The answer is " + subtract(getFirstNumber(), getSecondNumber()) + ".\n");
+      console.log("The answer is " + subtract(getSingleNumber("Enter your first number. "), getSingleNumber("Enter your second number. ")) + ".\n");
       operatorChoice();
       break;
     case "3":
       console.log("Ok, multiplication.");
-      console.log("The answer is " + mutiply(getFirstNumber(), getSecondNumber()) + ".\n");
+      console.log("The answer is " + mutiply(getSingleNumber("Enter your first number. "), getSingleNumber("Enter your second number. ")) + ".\n");
       operatorChoice();
       break;
     case "4":
       console.log("Ok, division.");
-      console.log("The answer is " + divide(getFirstNumber(), getSecondNumber()) + ".\n");
+      console.log("The answer is " + divide(getSingleNumber("Enter your first number. "), getSingleNumber("Enter your second number. ")) + ".\n");
       operatorChoice();
       break;
     case "5":
       console.log("Ok, square root.");
-      console.log("The answer is " + sqRoot(getSingleNumber() + ".\n"));
-      // var singleNum = sget("Enter a number: ");
-      // console.log("The square root of %s is %s.\n", singleNum.trim(), sqRoot(Number(singleNum)));
+      console.log("The answer is " + sqRoot(getSingleNumber("Enter a number. "))+ ".\n");
       operatorChoice();
       break;
     case "6":
       console.log("Goodbye.");
       break;
     default:
-      console.log("Invalid input, please try again");
+      console.log("Invalid input, please try again.\n");
       operatorChoice();
+      break
   }
 }
 
